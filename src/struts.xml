@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<package name="aaa" extends="struts-default" namespace="/front">
+		<action name="login" class="defaul.LoginAction">
+			<result name="success">/loginSuccess.jsp</result>
+			<result name="fail">/loginFail.jsp</result>
+		</action>
+	</package>
+	<package name="ccc" extends="struts-default" namespace="/gf">
+		<action name="login" class="defaul.CopyOfLoginAction" method="testMyjsp">
+			<result name="success">/loginSuccess.jsp</result>
+			<result name="fail">/loginFail.jsp</result>
+			<result name="myjsp">/MyJsp.jsp</result>
+		</action>
+	</package>
+	<package name="AddUser" extends="struts-default" namespace="/AddUser">
+		<action name="AddUser" class="defaul.AddUser">
+			<result name="success">/login.jsp</result>
+			<result name="fail">/AddUserFail.jsp</result>
+		</action>
+	</package>
+	<package name="info" extends="struts-default" namespace="/infoEdit">
+		<action name="infoActionAdd" class="Action.InfoAciton" method="addInfo">
+			<result name="success" type="chain">infoActionShow</result>
+			<result name="fail">/infoEdit/infoAddfail.jsp</result>
+			<result name="infoShow">/infoEdit/infoShow.jsp</result>
+		</action>
+		<action name="infoActionShow" class="Action.InfoAciton" method="infoShow">
+			<result name="success">infoEdit/infoShow.jsp</result>
+			<result name="fail">/infoEdit/infoAddfail.jsp</result>
+			<result name="infoShow">/infoEdit/infoShow.jsp</result>
+		</action>
+	</package>
+
+	<package name="infossh" extends="struts-default" namespace="/infoEdit_ssh">
+		<action name="infoActionAdd_ssh" class="Action.SshInfoActoin"
+			method="addInfo">
+			<result name="success" type="chain">infoActionShow_ssh</result>
+			<result name="fail">/infoEdit/infoAddfail.jsp</result>
+			<result name="infoShow">/infoEdit/infoShow.jsp</result>
+		</action>
+		<action name="infoActionShow_ssh" class="Action.SshInfoAction"
+			method="infoShow">
+			<result name="success">/infoEdit/infoShow.jsp</result>
+			<result name="fail">/infoEdit/infoAddfail.jsp</result>
+			<result name="infoShow">/infoEdit/infoShow.jsp</result>
+		</action>
+	</package>
+
+</struts>    
